@@ -34,10 +34,6 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-//                Habit(name: "Jogging", icon: .run, hexColor: "B33234"),
-//                Habit(name: "Swimming", icon: .poolSwim, hexColor: "6F223D"),
-//                Habit(name: "Biking", icon: .outdoorCycle, hexColor: "38571A"),
-//                Habit(name: "Elliptical", icon: .elliptical, hexColor: "FF3B30"),
                 Habit(name: "Cardio", icon: .cardio, hexColor: "B33234"),
                 Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D"),
                 Habit(name: "Reading", icon: .reading, hexColor: "38571A"),
