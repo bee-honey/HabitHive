@@ -1,0 +1,715 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBB254922C32516B0070D643 /* HabitHiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254912C32516B0070D643 /* HabitHiveApp.swift */; };
+		CBB254982C32516C0070D643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB254972C32516C0070D643 /* Assets.xcassets */; };
+		CBB2549B2C32516C0070D643 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB2549A2C32516C0070D643 /* Preview Assets.xcassets */; };
+		CBB254A52C32516C0070D643 /* HabitHiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254A42C32516C0070D643 /* HabitHiveTests.swift */; };
+		CBB254AF2C32516C0070D643 /* HabitHiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254AE2C32516C0070D643 /* HabitHiveUITests.swift */; };
+		CBB254B12C32516C0070D643 /* HabitHiveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254B02C32516C0070D643 /* HabitHiveUITestsLaunchTests.swift */; };
+		CBB254BE2C32521F0070D643 /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254BD2C32521F0070D643 /* HabitListView.swift */; };
+		CBB254C52C3254AA0070D643 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254C42C3254AA0070D643 /* ModalType.swift */; };
+		CBB254C72C3254DE0070D643 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254C62C3254DE0070D643 /* Habit.swift */; };
+		CBB254C92C32552C0070D643 /* HabitSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254C82C32552C0070D643 /* HabitSymbol.swift */; };
+		CBB254CB2C325A8C0070D643 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254CA2C325A8C0070D643 /* Routine.swift */; };
+		CBB254CD2C325B2C0070D643 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254CC2C325B2C0070D643 /* Date+Extension.swift */; };
+		CBB254CF2C325B520070D643 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254CE2C325B520070D643 /* Color+Extension.swift */; };
+		CBB254D12C328B7B0070D643 /* HabitFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254D02C328B7B0070D643 /* HabitFormView.swift */; };
+		CBB254D32C328B970070D643 /* RoutineFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254D22C328B970070D643 /* RoutineFormView.swift */; };
+		CBB254D52C3290F80070D643 /* RoutineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254D42C3290F80070D643 /* RoutineListView.swift */; };
+		CBB254D72C3326CF0070D643 /* RoutineFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254D62C3326CF0070D643 /* RoutineFormModel.swift */; };
+		CBB254D92C3337630070D643 /* HabitFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254D82C3337630070D643 /* HabitFormModel.swift */; };
+		CBB254DB2C3361DA0070D643 /* HabitIconSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254DA2C3361DA0070D643 /* HabitIconSelectionView.swift */; };
+		CBB254DD2C3397FE0070D643 /* StartTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254DC2C3397FD0070D643 /* StartTab.swift */; };
+		CBB254DF2C339A330070D643 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB254DE2C339A330070D643 /* Launch Screen.storyboard */; };
+		CBB254E42C33B57E0070D643 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254E32C33B57E0070D643 /* CalendarView.swift */; };
+		CBB254E62C33CF530070D643 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254E52C33CF530070D643 /* CalendarHeaderView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBB254A12C32516C0070D643 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBB254862C32516B0070D643 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBB2548D2C32516B0070D643;
+			remoteInfo = HabitHive;
+		};
+		CBB254AB2C32516C0070D643 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBB254862C32516B0070D643 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBB2548D2C32516B0070D643;
+			remoteInfo = HabitHive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CBB2548E2C32516B0070D643 /* HabitHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB254912C32516B0070D643 /* HabitHiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHiveApp.swift; sourceTree = "<group>"; };
+		CBB254972C32516C0070D643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBB2549A2C32516C0070D643 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CBB254A02C32516C0070D643 /* HabitHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB254A42C32516C0070D643 /* HabitHiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHiveTests.swift; sourceTree = "<group>"; };
+		CBB254AA2C32516C0070D643 /* HabitHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB254AE2C32516C0070D643 /* HabitHiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHiveUITests.swift; sourceTree = "<group>"; };
+		CBB254B02C32516C0070D643 /* HabitHiveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHiveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBB254BD2C32521F0070D643 /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
+		CBB254C42C3254AA0070D643 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
+		CBB254C62C3254DE0070D643 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		CBB254C82C32552C0070D643 /* HabitSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitSymbol.swift; sourceTree = "<group>"; };
+		CBB254CA2C325A8C0070D643 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		CBB254CC2C325B2C0070D643 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CBB254CE2C325B520070D643 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		CBB254D02C328B7B0070D643 /* HabitFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitFormView.swift; sourceTree = "<group>"; };
+		CBB254D22C328B970070D643 /* RoutineFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineFormView.swift; sourceTree = "<group>"; };
+		CBB254D42C3290F80070D643 /* RoutineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListView.swift; sourceTree = "<group>"; };
+		CBB254D62C3326CF0070D643 /* RoutineFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineFormModel.swift; sourceTree = "<group>"; };
+		CBB254D82C3337630070D643 /* HabitFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitFormModel.swift; sourceTree = "<group>"; };
+		CBB254DA2C3361DA0070D643 /* HabitIconSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitIconSelectionView.swift; sourceTree = "<group>"; };
+		CBB254DC2C3397FD0070D643 /* StartTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTab.swift; sourceTree = "<group>"; };
+		CBB254DE2C339A330070D643 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CBB254E32C33B57E0070D643 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		CBB254E52C33CF530070D643 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBB2548B2C32516B0070D643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB2549D2C32516C0070D643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB254A72C32516C0070D643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBB254852C32516B0070D643 = {
+			isa = PBXGroup;
+			children = (
+				CBB254902C32516B0070D643 /* HabitHive */,
+				CBB254A32C32516C0070D643 /* HabitHiveTests */,
+				CBB254AD2C32516C0070D643 /* HabitHiveUITests */,
+				CBB2548F2C32516B0070D643 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBB2548F2C32516B0070D643 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBB2548E2C32516B0070D643 /* HabitHive.app */,
+				CBB254A02C32516C0070D643 /* HabitHiveTests.xctest */,
+				CBB254AA2C32516C0070D643 /* HabitHiveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBB254902C32516B0070D643 /* HabitHive */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254912C32516B0070D643 /* HabitHiveApp.swift */,
+				CBB254C32C3252D40070D643 /* Extensions */,
+				CBB254C22C3252C30070D643 /* Utils */,
+				CBB254C12C3252A20070D643 /* Services */,
+				CBB254C02C32529C0070D643 /* Models */,
+				CBB254BF2C3252950070D643 /* Views */,
+				CBB254972C32516C0070D643 /* Assets.xcassets */,
+				CBB254992C32516C0070D643 /* Preview Content */,
+				CBB254DE2C339A330070D643 /* Launch Screen.storyboard */,
+			);
+			path = HabitHive;
+			sourceTree = "<group>";
+		};
+		CBB254992C32516C0070D643 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CBB2549A2C32516C0070D643 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CBB254A32C32516C0070D643 /* HabitHiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254A42C32516C0070D643 /* HabitHiveTests.swift */,
+			);
+			path = HabitHiveTests;
+			sourceTree = "<group>";
+		};
+		CBB254AD2C32516C0070D643 /* HabitHiveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254AE2C32516C0070D643 /* HabitHiveUITests.swift */,
+				CBB254B02C32516C0070D643 /* HabitHiveUITestsLaunchTests.swift */,
+			);
+			path = HabitHiveUITests;
+			sourceTree = "<group>";
+		};
+		CBB254BF2C3252950070D643 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254E02C33B5350070D643 /* Calendar */,
+				CBB254E22C33B5550070D643 /* Routines */,
+				CBB254E12C33B5480070D643 /* Habits */,
+				CBB254DC2C3397FD0070D643 /* StartTab.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CBB254C02C32529C0070D643 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254C42C3254AA0070D643 /* ModalType.swift */,
+				CBB254C62C3254DE0070D643 /* Habit.swift */,
+				CBB254C82C32552C0070D643 /* HabitSymbol.swift */,
+				CBB254CA2C325A8C0070D643 /* Routine.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBB254C12C3252A20070D643 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CBB254C22C3252C30070D643 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CBB254C32C3252D40070D643 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254CE2C325B520070D643 /* Color+Extension.swift */,
+				CBB254CC2C325B2C0070D643 /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBB254E02C33B5350070D643 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254E32C33B57E0070D643 /* CalendarView.swift */,
+				CBB254E52C33CF530070D643 /* CalendarHeaderView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		CBB254E12C33B5480070D643 /* Habits */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254BD2C32521F0070D643 /* HabitListView.swift */,
+				CBB254D02C328B7B0070D643 /* HabitFormView.swift */,
+				CBB254D82C3337630070D643 /* HabitFormModel.swift */,
+				CBB254DA2C3361DA0070D643 /* HabitIconSelectionView.swift */,
+			);
+			path = Habits;
+			sourceTree = "<group>";
+		};
+		CBB254E22C33B5550070D643 /* Routines */ = {
+			isa = PBXGroup;
+			children = (
+				CBB254D22C328B970070D643 /* RoutineFormView.swift */,
+				CBB254D42C3290F80070D643 /* RoutineListView.swift */,
+				CBB254D62C3326CF0070D643 /* RoutineFormModel.swift */,
+			);
+			path = Routines;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBB2548D2C32516B0070D643 /* HabitHive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBB254B42C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHive" */;
+			buildPhases = (
+				CBB2548A2C32516B0070D643 /* Sources */,
+				CBB2548B2C32516B0070D643 /* Frameworks */,
+				CBB2548C2C32516B0070D643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HabitHive;
+			productName = HabitHive;
+			productReference = CBB2548E2C32516B0070D643 /* HabitHive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBB2549F2C32516C0070D643 /* HabitHiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBB254B72C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHiveTests" */;
+			buildPhases = (
+				CBB2549C2C32516C0070D643 /* Sources */,
+				CBB2549D2C32516C0070D643 /* Frameworks */,
+				CBB2549E2C32516C0070D643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBB254A22C32516C0070D643 /* PBXTargetDependency */,
+			);
+			name = HabitHiveTests;
+			productName = HabitHiveTests;
+			productReference = CBB254A02C32516C0070D643 /* HabitHiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBB254A92C32516C0070D643 /* HabitHiveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBB254BA2C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHiveUITests" */;
+			buildPhases = (
+				CBB254A62C32516C0070D643 /* Sources */,
+				CBB254A72C32516C0070D643 /* Frameworks */,
+				CBB254A82C32516C0070D643 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBB254AC2C32516C0070D643 /* PBXTargetDependency */,
+			);
+			name = HabitHiveUITests;
+			productName = HabitHiveUITests;
+			productReference = CBB254AA2C32516C0070D643 /* HabitHiveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBB254862C32516B0070D643 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					CBB2548D2C32516B0070D643 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					CBB2549F2C32516C0070D643 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CBB2548D2C32516B0070D643;
+					};
+					CBB254A92C32516C0070D643 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CBB2548D2C32516B0070D643;
+					};
+				};
+			};
+			buildConfigurationList = CBB254892C32516B0070D643 /* Build configuration list for PBXProject "HabitHive" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBB254852C32516B0070D643;
+			productRefGroup = CBB2548F2C32516B0070D643 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBB2548D2C32516B0070D643 /* HabitHive */,
+				CBB2549F2C32516C0070D643 /* HabitHiveTests */,
+				CBB254A92C32516C0070D643 /* HabitHiveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBB2548C2C32516B0070D643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB254DF2C339A330070D643 /* Launch Screen.storyboard in Resources */,
+				CBB2549B2C32516C0070D643 /* Preview Assets.xcassets in Resources */,
+				CBB254982C32516C0070D643 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB2549E2C32516C0070D643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB254A82C32516C0070D643 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBB2548A2C32516B0070D643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB254D72C3326CF0070D643 /* RoutineFormModel.swift in Sources */,
+				CBB254E62C33CF530070D643 /* CalendarHeaderView.swift in Sources */,
+				CBB254C92C32552C0070D643 /* HabitSymbol.swift in Sources */,
+				CBB254E42C33B57E0070D643 /* CalendarView.swift in Sources */,
+				CBB254C52C3254AA0070D643 /* ModalType.swift in Sources */,
+				CBB254DD2C3397FE0070D643 /* StartTab.swift in Sources */,
+				CBB254D52C3290F80070D643 /* RoutineListView.swift in Sources */,
+				CBB254CB2C325A8C0070D643 /* Routine.swift in Sources */,
+				CBB254BE2C32521F0070D643 /* HabitListView.swift in Sources */,
+				CBB254CD2C325B2C0070D643 /* Date+Extension.swift in Sources */,
+				CBB254D32C328B970070D643 /* RoutineFormView.swift in Sources */,
+				CBB254D12C328B7B0070D643 /* HabitFormView.swift in Sources */,
+				CBB254DB2C3361DA0070D643 /* HabitIconSelectionView.swift in Sources */,
+				CBB254C72C3254DE0070D643 /* Habit.swift in Sources */,
+				CBB254922C32516B0070D643 /* HabitHiveApp.swift in Sources */,
+				CBB254CF2C325B520070D643 /* Color+Extension.swift in Sources */,
+				CBB254D92C3337630070D643 /* HabitFormModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB2549C2C32516C0070D643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB254A52C32516C0070D643 /* HabitHiveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBB254A62C32516C0070D643 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB254AF2C32516C0070D643 /* HabitHiveUITests.swift in Sources */,
+				CBB254B12C32516C0070D643 /* HabitHiveUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBB254A22C32516C0070D643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBB2548D2C32516B0070D643 /* HabitHive */;
+			targetProxy = CBB254A12C32516C0070D643 /* PBXContainerItemProxy */;
+		};
+		CBB254AC2C32516C0070D643 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBB2548D2C32516B0070D643 /* HabitHive */;
+			targetProxy = CBB254AB2C32516C0070D643 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CBB254B22C32516C0070D643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CBB254B32C32516C0070D643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBB254B52C32516C0070D643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HabitHive/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBB254B62C32516C0070D643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HabitHive/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBB254B82C32516C0070D643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HabitHive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HabitHive";
+			};
+			name = Debug;
+		};
+		CBB254B92C32516C0070D643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HabitHive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HabitHive";
+			};
+			name = Release;
+		};
+		CBB254BB2C32516C0070D643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHiveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HabitHive;
+			};
+			name = Debug;
+		};
+		CBB254BC2C32516C0070D643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nakeer.HabitHiveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HabitHive;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBB254892C32516B0070D643 /* Build configuration list for PBXProject "HabitHive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBB254B22C32516C0070D643 /* Debug */,
+				CBB254B32C32516C0070D643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBB254B42C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBB254B52C32516C0070D643 /* Debug */,
+				CBB254B62C32516C0070D643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBB254B72C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBB254B82C32516C0070D643 /* Debug */,
+				CBB254B92C32516C0070D643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBB254BA2C32516C0070D643 /* Build configuration list for PBXNativeTarget "HabitHiveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBB254BB2C32516C0070D643 /* Debug */,
+				CBB254BC2C32516C0070D643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBB254862C32516B0070D643 /* Project object */;
+}
