@@ -11,9 +11,13 @@ import SwiftData
 struct StartTab: View {
     var body: some View {
         TabView {
+            DailyView()
+                .tabItem {
+                    Label("Daily", systemImage: "person.badge.plus")
+                }
             HabitListView()
                 .tabItem {
-                    Label("Habits", systemImage: "figure.mixed.cardio")
+                    Label("View all", systemImage: "list.number")
                 }
             CalendarHeaderView()
                 .tabItem {

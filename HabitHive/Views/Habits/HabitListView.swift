@@ -16,7 +16,7 @@ struct `HabitListView`: View {
         NavigationStack(path: $path) {
             Group {
                 if habits.isEmpty {
-                    ContentUnavailableView("Create your first Habit by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top.", image: "launchScreen")
+                    ContentUnavailableView("Create your first Habit by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top of Daily tab", image: "launchScreen")
                 } else {
                     List(habits) { habit in
                         NavigationLink(value: habit){
@@ -51,17 +51,17 @@ struct `HabitListView`: View {
                 }
             }
             .navigationTitle("Habits")
-            .toolbar {
-                Button {
-                    modalType = .newHabit
-                } label: {
-                    Image(systemName: "plus.circle.fill")
-                }
-                .sheet(item: $modalType) { sheet in
-                    sheet
-                        .presentationDetents([.height(450)])
-                }
-            }
+//            .toolbar {
+//                Button {
+//                    modalType = .newHabit
+//                } label: {
+//                    Image(systemName: "plus.circle.fill")
+//                }
+//                .sheet(item: $modalType) { sheet in
+//                    sheet
+//                        .presentationDetents([.height(450)])
+//                }
+//            }
             .navigationDestination(for: Habit.self) { habit in
                 RoutineListView(habit: habit)
             }
