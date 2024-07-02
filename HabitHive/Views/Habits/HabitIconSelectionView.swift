@@ -52,7 +52,7 @@ struct HabitIconSelectionView: View {
 
 #Preview {
     struct Preview: View {
-        @State private var selectedIcon:HabitSymbol = .mixedCardio
+        @State private var selectedIcon:HabitSymbol = .cardio
         var body: some View {
             HabitIconSelectionView(selectingIcon: .constant(true), selectedIcon: $selectedIcon)
         }

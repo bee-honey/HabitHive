@@ -16,7 +16,7 @@ import SwiftData
     var icon: HabitSymbol.RawValue
     var hexColor: String
     var routines: [Routine] = []
-    init(name: String, icon: HabitSymbol = .mixedCardio, hexColor: String = "FF0000") {
+    init(name: String, icon: HabitSymbol = .gardening, hexColor: String = "FF0000") {
         self.name = name
         self.icon = icon.rawValue
         self.hexColor = hexColor
@@ -34,34 +34,38 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-                Habit(name: "Jogging", icon: .run, hexColor: "B33234"),
-                Habit(name: "Swimming", icon: .poolSwim, hexColor: "6F223D"),
-                Habit(name: "Biking", icon: .outdoorCycle, hexColor: "38571A"),
-                Habit(name: "Elliptical", icon: .elliptical, hexColor: "FF3B30"),
+//                Habit(name: "Jogging", icon: .run, hexColor: "B33234"),
+//                Habit(name: "Swimming", icon: .poolSwim, hexColor: "6F223D"),
+//                Habit(name: "Biking", icon: .outdoorCycle, hexColor: "38571A"),
+//                Habit(name: "Elliptical", icon: .elliptical, hexColor: "FF3B30"),
+                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234"),
+                Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D"),
+                Habit(name: "Reading", icon: .reading, hexColor: "38571A"),
+                Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30"),
             ]
         }
         
-        let sampleComments =  [
-            "Energized and alive!",
-            "Sweaty but satisfied.",
-            "On top of the world!",
-            "Exhausted but accomplished.",
-            "Muscles are singing!",
-            "Feeling the burn in a good way.",
-            "Empowered and strong.",
-            "Ready to conquer the day.",
-            "A good kind of soreness.",
-            "Proud of the effort.",
-            "Revitalized and refreshed.",
-            "Endorphins pumping!",
-            "Like a fitness superhero!",
-            "Beaming with post-workout glow.",
-            "Unstoppable and determined.",
-            "Tired but triumphant.",
-            "Fuelled with positive vibes.",
-            "In love with the post-workout high.",
-            "Feeling the progress.",
-            "Champion mode activated!"
+        let sampleComments = [
+            "Feeling fantastic!",
+            "Worked up a good sweat.",
+            "On cloud nine!",
+            "Worn out but satisfied.",
+            "Muscles feeling strong!",
+            "Embracing the burn.",
+            "Empowered and unstoppable.",
+            "Ready to take on anything.",
+            "Good sore feeling.",
+            "Proud of my effort.",
+            "Refreshed and revitalized.",
+            "Endorphin rush!",
+            "Like a fitness warrior!",
+            "Glowing with health.",
+            "Determined and focused.",
+            "Exhausted yet triumphant.",
+            "Charged with energy.",
+            "Loving the workout high.",
+            "Seeing the results.",
+            "In champion mode!"
         ]
 
         sampleHabits.forEach { habit in

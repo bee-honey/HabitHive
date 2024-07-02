@@ -10,7 +10,7 @@ import SwiftUI
 @Observable
 class HabitFormModel {
     var name = ""
-    var icon: HabitSymbol = .mixedCardio
+    var icon: HabitSymbol = .cardio
     var hexColor: Color = .red
     
     var habit: Habit?
@@ -22,7 +22,7 @@ class HabitFormModel {
     init(habit: Habit) {
         self.habit = habit
         self.name = habit.name
-        self.icon = HabitSymbol(rawValue: habit.icon) ?? .mixedCardio
+        self.icon = HabitSymbol(rawValue: habit.icon) ?? .cardio
         self.hexColor = Color(hex: habit.hexColor)!
     }
     
