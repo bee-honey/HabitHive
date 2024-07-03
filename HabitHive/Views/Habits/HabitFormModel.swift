@@ -12,7 +12,7 @@ class HabitFormModel {
     var name = ""
     var icon: HabitSymbol = .cardio
     var hexColor: Color = .red
-    var numberOfTimesPerDay: Int = 1
+    var countPerDay: Int = 1
     
     var habit: Habit?
     

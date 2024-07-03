@@ -15,11 +15,13 @@ import SwiftData
     @Relationship(deleteRule: .cascade)
     var icon: HabitSymbol.RawValue
     var hexColor: String
+    var countPerDay: Int
     var routines: [Routine] = []
-    init(name: String, icon: HabitSymbol = .gardening, hexColor: String = "FF0000") {
+    init(name: String, icon: HabitSymbol = .gardening, hexColor: String = "FF0000", countPerDay: Int = 1) {
         self.name = name
         self.icon = icon.rawValue
         self.hexColor = hexColor
+        self.countPerDay = countPerDay
     }
 }
 
@@ -34,10 +36,10 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234"),
-                Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D"),
-                Habit(name: "Reading", icon: .reading, hexColor: "38571A"),
-                Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30"),
+                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4),
+                Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D", countPerDay: 3),
+                Habit(name: "Reading", icon: .reading, hexColor: "38571A", countPerDay: 2),
+                Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30", countPerDay: 1),
             ]
         }
         

@@ -31,20 +31,43 @@ struct DailyView: View {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(habits) { habit in
                                 Button(action: {
-                                    clickedHabits.insert(habit.id)
+                                    if clickedHabits.contains(habit.id) {
+                                        clickedHabits.remove(habit.id)
+                                    } else {
+                                        clickedHabits.insert(habit.id)
+                                    }
                                 }) {
                                     VStack {
                                         Image(systemName: habit.icon)
                                             .foregroundStyle(Color(hex: habit.hexColor)!)
                                             .font(.system(size: 30))
                                             .frame(width: 50)
-                                        Text(habit.name.capitalized)
+                                            .padding(.bottom, 5)
                                         Spacer()
+                
+                                        Text(habit.name.capitalized)
+                                            .font(.body)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(2)
+                                            .frame(maxWidth: .infinity, alignment: Alignment.center)
                                     }
                                     .padding()
                                     .background(Color(UIColor.secondarySystemBackground))
                                     .cornerRadius(10)
                                     .shadow(radius: 5)
+                                    .overlay(
+                                        VStack {
+                                            HStack {
+                                                if habit.countPerDay > 1 {
+                                                    Text("\(habit.countPerDay)")
+                                                }
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                        .padding([.top, .trailing], 5)
+                                    )
                                     .overlay(
                                         VStack {
                                             HStack {
@@ -56,13 +79,14 @@ struct DailyView: View {
                                             }
                                             Spacer()
                                         }
-                                            .padding([.top, .trailing], 5)
+                                        .padding([.top, .trailing], 5)
                                     )
                                 }
-                                .disabled(clickedHabits.contains(habit.id))
+                                //.disabled(clickedHabits.contains(habit.id))
                             }
                         }
                         .padding(.horizontal)
+                        
                     }
                 }
             }
@@ -77,7 +101,8 @@ struct DailyView: View {
                         .presentationDetents([.height(450)])
                 }
             }
-            .navigationTitle("Daily Record")
+            .navigationTitle("Today")
+            //            .background(Color(UIColor.secondarySystemBackground))
         }
     }
 }

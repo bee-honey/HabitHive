@@ -24,6 +24,20 @@ struct HabitFormView: View {
                     } label: {
                         Text("Name")
                     }
+                    
+                    LabeledContent {
+                        Picker("Times per day", selection: $model.countPerDay) {
+                            ForEach(1..<25) { number in
+                                Text("\(number)").tag(number)
+                            }
+                        }
+                        .pickerStyle(.menu) // or any other style you prefer
+                    } label: {
+                        Text("Times per day")
+                    }
+                    
+                    
+                    
                     LabeledContent {
                         Button {
                             selectingIcon.toggle()
@@ -37,7 +51,7 @@ struct HabitFormView: View {
                     LabeledContent {
                         ColorPicker("", selection: $model.hexColor, supportsOpacity: false)
                     } label: {
-                        Text("Activity color")
+                        Text("Task color")
                     }
                     .padding(.top)
                     Button(model.updating ? "Update" : "Create") {
@@ -45,9 +59,10 @@ struct HabitFormView: View {
                             model.habit?.name = model.name
                             model.habit?.icon = model.icon.rawValue
                             model.habit?.hexColor = model.hexColor.toHex()!
+                            model.habit?.countPerDay = model.countPerDay
                             
                         } else {
-                            let newHabit = Habit(name: model.name, icon: model.icon, hexColor: model.hexColor.toHex()!)
+                            let newHabit = Habit(name: model.name, icon: model.icon, hexColor: model.hexColor.toHex()!, countPerDay: model.countPerDay)
                             modelContext.insert(newHabit)
                         }
                         dismiss()
