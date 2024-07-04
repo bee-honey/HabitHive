@@ -35,8 +35,9 @@ struct DailyView: View {
                                 let isButtonActive = remainingCount > 0
                                 Button(action: {
                                     if isButtonActive {
-                                        modalType = .newRoutine(habit)
-                                        habitCounts[habit.id] = remainingCount - 1
+                                        modalType = ModalType.newRoutine(habit, completion: {
+                                            habitCounts[habit.id] = remainingCount - 1
+                                        })
                                     }
                                 }) {
                                     VStack {
@@ -113,7 +114,6 @@ struct DailyView: View {
                 }
             }
             .navigationTitle("Today's Routine")
-            //            .background(Color(UIColor.secondarySystemBackground))
         }
         .onAppear {
             resetCountsIfNeeded()

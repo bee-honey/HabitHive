@@ -47,7 +47,7 @@ struct RoutineListView: View {
                     .swipeActions(edge: .leading) {
                         Button(action: {
                             if let index = habit.routines.firstIndex(where: { $0.id == routine.id }) {
-                                modalType = .updateRoutine(habit.routines[index])
+                                modalType = ModalType.updateRoutine(habit.routines[index], completion: {})
                             }
                         }, label: {
                             Label("Edit", systemImage: "pencil")
@@ -65,7 +65,7 @@ struct RoutineListView: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    modalType = .newRoutine(habit)
+                    modalType = .newRoutine(habit, completion: {})
                 } label: {
                     Image(systemName: "plus.circle.fill")
                 }

@@ -12,6 +12,7 @@ struct RoutineFormView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     @State var model: RoutineFormModel
+    var completion: () -> Void
     
     var body: some View {
         NavigationStack {
@@ -38,6 +39,7 @@ struct RoutineFormView: View {
                         let newRoutine = Routine(date: model.date, comment: model.comment)
                         model.habit?.routines.append(newRoutine)
                     }
+                    completion()
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)
@@ -58,7 +60,9 @@ struct RoutineFormView: View {
     fetchDescriptor.sortBy = [SortDescriptor(\.name)]
     let habit = try! container.mainContext.fetch(fetchDescriptor)[0]
     return NavigationStack {
-        RoutineFormView(model: RoutineFormModel(habit: habit))
+        RoutineFormView(model: RoutineFormModel(habit: habit)) {
+            print("Routine created")
+        }
     }
     .modelContainer(Habit.preview)
 }
