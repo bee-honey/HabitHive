@@ -31,6 +31,7 @@
 		CBB254E42C33B57E0070D643 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254E32C33B57E0070D643 /* CalendarView.swift */; };
 		CBB254E62C33CF530070D643 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254E52C33CF530070D643 /* CalendarHeaderView.swift */; };
 		CBB254E92C347A2F0070D643 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254E82C347A2F0070D643 /* DailyView.swift */; };
+		CBB254ED2C3658110070D643 /* DailyHabitCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254EC2C3658110070D643 /* DailyHabitCount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CBB254E32C33B57E0070D643 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CBB254E52C33CF530070D643 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		CBB254E82C347A2F0070D643 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		CBB254EC2C3658110070D643 /* DailyHabitCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				CBB254C62C3254DE0070D643 /* Habit.swift */,
 				CBB254C82C32552C0070D643 /* HabitSymbol.swift */,
 				CBB254CA2C325A8C0070D643 /* Routine.swift */,
+				CBB254EC2C3658110070D643 /* DailyHabitCount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				CBB254D12C328B7B0070D643 /* HabitFormView.swift in Sources */,
 				CBB254DB2C3361DA0070D643 /* HabitIconSelectionView.swift in Sources */,
 				CBB254C72C3254DE0070D643 /* Habit.swift in Sources */,
+				CBB254ED2C3658110070D643 /* DailyHabitCount.swift in Sources */,
 				CBB254922C32516B0070D643 /* HabitHiveApp.swift in Sources */,
 				CBB254CF2C325B520070D643 /* Color+Extension.swift in Sources */,
 				CBB254D92C3337630070D643 /* HabitFormModel.swift in Sources */,

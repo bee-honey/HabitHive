@@ -12,9 +12,11 @@ struct DailyView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var modalType: ModalType?
     @Query(sort: \Habit.name) private var habits: [Habit]
+    @Query private var dailyHabitCounts: [DailyHabitCount]
+    @Query private var routines: [Routine]
     @State private var path = NavigationPath()
-    @State private var clickedHabits: Set<Habit.ID> = []
-    @State private var habitCounts: [Habit.ID: Int] = [:]
+    @State private var clickedHabits: Set<UUID> = []
+    @State private var habitCounts: [UUID: Int] = [:]
     
     let columns = [
         GridItem(.flexible()),
@@ -36,7 +38,9 @@ struct DailyView: View {
                                 Button(action: {
                                     if isButtonActive {
                                         modalType = ModalType.newRoutine(habit, completion: {
-                                            habitCounts[habit.id] = remainingCount - 1
+                                            let newCount = remainingCount - 1
+                                            habitCounts[habit.id] = newCount
+                                            updateHabitCount(habit: habit, newCount: newCount)
                                         })
                                     }
                                 }) {
@@ -122,10 +126,23 @@ struct DailyView: View {
     }
     
     private func initializeHabitCounts() {
-        for habit in habits {
-            if habitCounts[habit.id] == nil {
-                habitCounts[habit.id] = habit.countPerDay
+        let today = Calendar.current.startOfDay(for: Date())
+            for habit in habits {
+                if let dailyCount = dailyHabitCounts.first(where: { $0.habitID == habit.id && $0.date == today }) {
+                    habitCounts[habit.id] = dailyCount.remainingCount
+                } else {
+                    habitCounts[habit.id] = habit.countPerDay
+                }
             }
+    }
+    
+    private func updateHabitCount(habit: Habit, newCount: Int) {
+        let today = Calendar.current.startOfDay(for: Date())
+        if let dailyCount = dailyHabitCounts.first(where: { $0.habitID == habit.id && $0.date == today }) {
+            dailyCount.remainingCount = newCount
+        } else {
+            let newDailyCount = DailyHabitCount(date: today, habitID: habit.id, remainingCount: newCount)
+            modelContext.insert(newDailyCount)
         }
     }
     
