@@ -14,6 +14,7 @@ struct DailyView: View {
     @Query(sort: \Habit.name) private var habits: [Habit]
     @State private var path = NavigationPath()
     @State private var clickedHabits: Set<Habit.ID> = []
+    @State private var habitCounts: [Habit.ID: Int] = [:]
     
     let columns = [
         GridItem(.flexible()),
@@ -30,11 +31,12 @@ struct DailyView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(habits) { habit in
+                                let remainingCount = habitCounts[habit.id] ?? habit.countPerDay
+                                let isButtonActive = remainingCount > 0
                                 Button(action: {
-                                    if clickedHabits.contains(habit.id) {
-                                        clickedHabits.remove(habit.id)
-                                    } else {
-                                        clickedHabits.insert(habit.id)
+                                    if isButtonActive {
+                                        modalType = .newRoutine(habit)
+                                        habitCounts[habit.id] = remainingCount - 1
                                     }
                                 }) {
                                     VStack {
@@ -44,7 +46,7 @@ struct DailyView: View {
                                             .frame(width: 50)
                                             .padding(.bottom, 5)
                                         Spacer()
-                
+                                        
                                         Text(habit.name.capitalized)
                                             .font(.body)
                                             .multilineTextAlignment(.leading)
@@ -52,37 +54,46 @@ struct DailyView: View {
                                             .frame(maxWidth: .infinity, alignment: Alignment.center)
                                     }
                                     .padding()
-                                    .background(Color(UIColor.secondarySystemBackground))
-                                    .cornerRadius(10)
-                                    .shadow(radius: 5)
+                                    .background(Color(isButtonActive ? Color(UIColor.secondarySystemBackground) : Color.clear))
+                                    .cornerRadius(isButtonActive ? 10 : 0)
+                                    .shadow(radius: isButtonActive ? 5 : 0)
                                     .overlay(
                                         VStack {
                                             HStack {
-                                                if habit.countPerDay > 1 {
-                                                    Text("\(habit.countPerDay)")
+                                                if isButtonActive {
+                                                    ZStack {
+                                                        Circle()
+                                                            .fill(Color(red: 0.9, green: 0.9, blue: 0.9))
+                                                            .frame(width: 24, height: 24)
+                                                        Text("\(remainingCount)")
+                                                            .foregroundColor(.red)
+                                                            .font(.caption)
+                                                            .bold()
+                                                    }
+                                                    .padding(.leading, 5)
                                                 }
                                                 Spacer()
                                             }
                                             
                                             Spacer()
                                         }
-                                        .padding([.top, .trailing], 5)
+                                            .padding([.top, .trailing], 5)
                                     )
                                     .overlay(
                                         VStack {
                                             HStack {
                                                 Spacer()
-                                                if clickedHabits.contains(habit.id) {
+                                                if remainingCount == 0 {
                                                     Image(systemName: "checkmark.circle.fill")
                                                         .foregroundColor(.green)
                                                 }
                                             }
                                             Spacer()
                                         }
-                                        .padding([.top, .trailing], 5)
+                                            .padding([.top, .trailing], 5)
                                     )
                                 }
-                                //.disabled(clickedHabits.contains(habit.id))
+                                .disabled(!isButtonActive)
                             }
                         }
                         .padding(.horizontal)
@@ -101,8 +112,32 @@ struct DailyView: View {
                         .presentationDetents([.height(450)])
                 }
             }
-            .navigationTitle("Today")
+            .navigationTitle("Today's Routine")
             //            .background(Color(UIColor.secondarySystemBackground))
+        }
+        .onAppear {
+            resetCountsIfNeeded()
+            initializeHabitCounts()
+        }
+    }
+    
+    private func initializeHabitCounts() {
+        for habit in habits {
+            if habitCounts[habit.id] == nil {
+                habitCounts[habit.id] = habit.countPerDay
+            }
+        }
+    }
+    
+    private func resetCountsIfNeeded() {
+        let today = Calendar.current.startOfDay(for: Date())
+        if let lastResetDate = UserDefaults.standard.object(forKey: "lastResetDate") as? Date {
+            if lastResetDate < today {
+                habitCounts.removeAll()
+                UserDefaults.standard.set(today, forKey: "lastResetDate")
+            }
+        } else {
+            UserDefaults.standard.set(today, forKey: "lastResetDate")
         }
     }
 }

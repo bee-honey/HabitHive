@@ -22,14 +22,18 @@ struct CalendarHeaderView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("", selection: $selectedHabit) {
-                    Text("All").tag(nil as Habit?)
-                    ForEach(habits) { habit in
-                        Text(habit.name).tag(habit as Habit?)
-                    }
-                }
-                .buttonStyle(.borderedProminent)
+                
                 HStack {
+                    Picker("", selection: $selectedHabit) {
+                        Text("All").tag(nil as Habit?)
+                        ForEach(habits) { habit in
+                            Text(habit.name).tag(habit as Habit?)
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.leading, 20)
+                    Spacer()
+                        
                     Picker("", selection: $selectedYear) {
                         ForEach(years, id: \.self) { year in
                             Text(String(year))
@@ -41,6 +45,7 @@ struct CalendarHeaderView: View {
                             
                         }
                     }
+                    .padding(.trailing, 20)
                 }
                 .buttonStyle(.bordered)
                 CalendarView(date: monthDate, selectedHabit: selectedHabit)
