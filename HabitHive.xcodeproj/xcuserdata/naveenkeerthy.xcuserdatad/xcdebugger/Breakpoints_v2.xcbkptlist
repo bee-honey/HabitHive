@@ -31,9 +31,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "body"
-            landmarkType = "24">
+            endingLineNumber = "68">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -47,9 +45,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "body"
-            landmarkType = "24">
+            endingLineNumber = "74">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,8 +58,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "initializeHabitCounts()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +74,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "updateHabitCount(habit:newCount:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +90,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "initializeHabitCounts()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +106,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "initializeHabitCounts()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +122,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "updateHabitCount(habit:newCount:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +138,8 @@
             filePath = "HabitHive/Views/Dialy/DailyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "updateHabitCount(habit:newCount:)"
             landmarkType = "7">
          </BreakpointContent>

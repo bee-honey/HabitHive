@@ -13,11 +13,12 @@ struct CalendarView: View {
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     @State private var days:[Date] = []
-//    let days = 1..<32
-    
     let selectedHabit: Habit?
     @Query private var routines: [Routine]
     @State private var counts = [Int : Int]()
+    
+    @State private var selectedDay: Date?
+    @State private var routinesByDay: [Routine] = []
     
     init(date: Date, selectedHabit: Habit?) {
         self.date = date
@@ -46,15 +47,14 @@ struct CalendarView: View {
                     if day.monthInt != date.monthInt {
                         Text("")
                     } else {
-                        Text("\(day.formatted(.dateTime.day()))")
+                        Text(day.formatted(.dateTime.day()))
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, minHeight: 40)
                             .background(
                                 Circle()
                                     .foregroundStyle(
-                                        Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3) :
-                                                color.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3))
+                                        Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3) : color.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3))
                             )
                             .overlay(alignment: .bottomTrailing) {
                                 if let count = counts[day.dayInt] {
@@ -67,22 +67,45 @@ struct CalendarView: View {
                                         .offset(x: 5, y: 5)
                                 }
                             }
+                            .onTapGesture {
+                                if let count = counts[day.dayInt], count > 0 {
+                                    selectedDay = day
+                                } else {
+                                    selectedDay = nil
+                                }
+                            }
                     }
                 }
                 
             }
+            
+            if let selectedDay {
+                RoutineListView(day: selectedDay, routines: routinesByDay)
+            }
+            
         }
         .padding()
         .onAppear(perform: {
             days = date.calendarDisplayDays
             setupCounts()
+            selectedDay = nil
         })
         .onChange(of: date) {
             days = date.calendarDisplayDays
             setupCounts()
+            selectedDay = nil
         }
         .onChange(of: selectedHabit) {
             setupCounts()
+            selectedDay = nil
+        }
+        .onChange(of: selectedDay) {
+            if let selectedDay {
+                routinesByDay = routines.filter {$0.date.dayInt == selectedDay.dayInt}
+                if let selectedHabit {
+                    routinesByDay = routinesByDay.filter({ $0.habit == selectedHabit })
+                }
+            }
         }
     }
     

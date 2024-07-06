@@ -23,33 +23,36 @@ struct CalendarHeaderView: View {
         NavigationStack {
             VStack {
                 
-                HStack {
-                    Picker("", selection: $selectedHabit) {
-                        Text("All").tag(nil as Habit?)
-                        ForEach(habits) { habit in
-                            Text(habit.name).tag(habit as Habit?)
+                if !routines.isEmpty {
+                    HStack {
+                        Picker("", selection: $selectedHabit) {
+                            Text("All").tag(nil as Habit?)
+                            ForEach(habits) { habit in
+                                Text(habit.name).tag(habit as Habit?)
+                            }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .padding(.leading, 20)
+                        Spacer()
+                        Picker("", selection: $selectedYear) {
+                            ForEach(years, id: \.self) { year in
+                                Text(String(year))
+                            }
+                        }
+                        Picker("", selection: $selectedMonth) {
+                            ForEach(months.indices, id: \.self) { index in
+                                Text(months[index]).tag(index + 1)
+                                
+                            }
                         }
                     }
-                    .buttonStyle(.borderedProminent)
-                    .padding(.leading, 20)
+                    .buttonStyle(.bordered)
+                    CalendarView(date: monthDate, selectedHabit: selectedHabit)
                     Spacer()
-                        
-                    Picker("", selection: $selectedYear) {
-                        ForEach(years, id: \.self) { year in
-                            Text(String(year))
-                        }
-                    }
-                    Picker("", selection: $selectedMonth) {
-                        ForEach(months.indices, id: \.self) { index in
-                            Text(months[index]).tag(index + 1)
-                            
-                        }
-                    }
-                    .padding(.trailing, 20)
+                } else {
+                    ContentUnavailableView("No Workouts yet", systemImage: HabitSymbol.cardio.rawValue)
                 }
-                .buttonStyle(.bordered)
-                CalendarView(date: monthDate, selectedHabit: selectedHabit)
-                Spacer()
+                
             }
             .navigationTitle("Tallies")
         }

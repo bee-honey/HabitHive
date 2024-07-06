@@ -13,14 +13,17 @@ struct RoutineFormView: View {
     @Environment(\.dismiss) private var dismiss
     @State var model: RoutineFormModel
     var completion: () -> Void
+    let today: Date = .now
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                LabeledContent {
-                    DatePicker("", selection: $model.date)
-                } label: {
-                    Text("Date/Time")
+                if model.updating {
+                    LabeledContent {
+                        DatePicker("", selection: $model.date, in: ...today)
+                    } label: {
+                        Text("Date/Time")
+                    }
                 }
                 
                 LabeledContent {
@@ -33,10 +36,10 @@ struct RoutineFormView: View {
                 
                 Button(model.updating ? "Update" : "Create") {
                     if model.updating {
-                        model.routine?.date = model.date
+                        model.routine?.date = .now
                         model.routine?.comment = model.comment
                     } else {
-                        let newRoutine = Routine(date: model.date, comment: model.comment)
+                        let newRoutine = Routine(date: .now, comment: model.comment)
                         model.habit?.routines.append(newRoutine)
                     }
                     completion()

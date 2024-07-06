@@ -62,28 +62,39 @@ struct DailyView: View {
                                     .background(Color(isButtonActive ? Color(UIColor.secondarySystemBackground) : Color.clear))
                                     .cornerRadius(isButtonActive ? 10 : 0)
                                     .shadow(radius: isButtonActive ? 5 : 0)
-                                    .overlay(
-                                        VStack {
-                                            HStack {
-                                                if isButtonActive {
-                                                    ZStack {
-                                                        Circle()
-                                                            .fill(Color(red: 0.9, green: 0.9, blue: 0.9))
-                                                            .frame(width: 24, height: 24)
-                                                        Text("\(remainingCount)")
-                                                            .foregroundColor(.red)
-                                                            .font(.caption)
-                                                            .bold()
-                                                    }
-                                                    .padding(.leading, 5)
-                                                }
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
+                                    .overlay(alignment: .topLeading) {
+                                        if remainingCount > 0 {
+                                            Image(systemName: remainingCount < 50 ? "\(remainingCount).circle.fill" : "plus.circle.fill")
+                                                .foregroundColor(Color(red: 0.7, green: 0.7, blue: 0.3))
+                                                .imageScale(.medium)
+                                                .background(Color(.systemBackground)
+                                                    .clipShape(.circle)
+                                                )
+                                                .offset(x: 5, y: 5)
                                         }
-                                            .padding([.top, .trailing], 5)
-                                    )
+                                    }
+//                                    .overlay(alignment: .bottomTrailing)(
+//                                        VStack {
+//                                            HStack {
+//                                                if isButtonActive {
+//                                                    ZStack {
+//                                                        Circle()
+//                                                            .fill(Color(red: 0.9, green: 0.9, blue: 0.9))
+//                                                            .frame(width: 24, height: 24)
+//                                                        Text("\(remainingCount)")
+//                                                            .foregroundColor(.red)
+//                                                            .font(.caption)
+//                                                            .bold()
+//                                                    }
+//                                                    .padding(.leading, 5)
+//                                                }
+//                                                Spacer()
+//                                            }
+//                                            
+//                                            Spacer()
+//                                        }
+//                                            .padding([.top, .trailing], 5)
+//                                    )
                                     .overlay(
                                         VStack {
                                             HStack {
@@ -114,7 +125,7 @@ struct DailyView: View {
                 }
                 .sheet(item: $modalType) { sheet in
                     sheet
-                        .presentationDetents([.height(450)])
+                        .presentationDetents([.height(375)])
                 }
             }
             .navigationTitle("Today's Routine")

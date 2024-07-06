@@ -67,7 +67,7 @@ struct `HabitListView`: View {
                     .presentationDetents([.height(450)])
             })
             .navigationDestination(for: Habit.self) { habit in
-                RoutineListView(habit: habit)
+                RoutinesListView(habit: habit)
             }
             
         }
