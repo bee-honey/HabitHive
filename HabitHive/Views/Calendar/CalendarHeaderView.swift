@@ -45,6 +45,7 @@ struct CalendarHeaderView: View {
                                 
                             }
                         }
+                        .padding(.trailing, 20)
                     }
                     .buttonStyle(.bordered)
                     CalendarView(date: monthDate, selectedHabit: selectedHabit)

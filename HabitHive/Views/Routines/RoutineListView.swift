@@ -14,6 +14,7 @@ struct RoutineListView: View {
     var filteredRoutines: [Routine] = []
     
     init(day: Date, routines: [Routine]) {
+        print(day)
         self.day = day
         self.routines = routines
         self.filteredRoutines = routines.filter({ $0.date.startOfDay == day.startOfDay })
@@ -22,12 +23,12 @@ struct RoutineListView: View {
     var body: some View {
         VStack(alignment: .leading, content: {
             Text("Routines")
-            
             List(filteredRoutines) { routine in
+    
                 HStack {
                     Image(systemName: routine.habit?.icon ?? HabitSymbol.cardio.rawValue)
-                        .foregroundStyle(Color(hex: routine.habit!.hexColor)!)
-                    Text(routine.habit?.name ?? "")
+                        .foregroundStyle(Color(hex: routine.habit?.hexColor ?? "FF0000")!)
+                    Text(routine.habit?.name ?? "Deleted Habit")
                 }
                 
                 VStack(alignment: .leading, content: {

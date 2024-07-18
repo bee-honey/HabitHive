@@ -36,7 +36,7 @@ struct RoutineFormView: View {
                 
                 Button(model.updating ? "Update" : "Create") {
                     if model.updating {
-                        model.routine?.date = .now
+                        model.routine?.date = model.date
                         model.routine?.comment = model.comment
                     } else {
                         let newRoutine = Routine(date: .now, comment: model.comment)

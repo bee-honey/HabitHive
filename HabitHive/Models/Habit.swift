@@ -13,10 +13,10 @@ import SwiftData
 @Model class Habit {
     var id: UUID
     var name: String
-    @Relationship(deleteRule: .cascade)
     var icon: HabitSymbol.RawValue
     var hexColor: String
     var countPerDay: Int
+    @Relationship(deleteRule: .cascade)
     var routines: [Routine] = []
     var dailyHabitCount: [DailyHabitCount] = []
     init(id: UUID = UUID(), name: String, icon: HabitSymbol = .gardening, hexColor: String = "FF0000", countPerDay: Int = 1) {
