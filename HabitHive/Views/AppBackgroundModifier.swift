@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct AppBackgroundModifier: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct AppBackgroundModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Color(hex: "#720E7E"))
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
-#Preview {
-    AppBackgroundModifier()
+extension View {
+    func appBackground() -> some View {
+        self.modifier(AppBackgroundModifier())
+    }
 }
+

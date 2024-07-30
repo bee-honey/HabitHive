@@ -14,7 +14,11 @@ struct `HabitListView`: View {
     @State private var path = NavigationPath()
     var body: some View {
         NavigationStack(path: $path) {
-            Group {
+            ZStack {
+//                Color.bgcolor
+//                    .edgesIgnoringSafeArea(.all)
+                //                Group {}
+                
                 if habits.isEmpty {
                     ContentUnavailableView("Create your first Habit by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top of Daily tab", image: "launchScreen")
                 } else {
@@ -32,6 +36,7 @@ struct `HabitListView`: View {
                                     .foregroundStyle(.secondary)
                             }
                         }
+//                        .listRowBackground(Color.bgcolor)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
                                 modelContext.delete(habit)
@@ -48,31 +53,24 @@ struct `HabitListView`: View {
                         }
                     }
                     .listStyle(.plain)
+                    .background(Color.clear)
                 }
+                
             }
-            .navigationTitle("Habits")
-//            .toolbar {
-//                Button {
-//                    modalType = .newHabit
-//                } label: {
-//                    Image(systemName: "plus.circle.fill")
-//                }
-//                .sheet(item: $modalType) { sheet in
-//                    sheet
-//                        .presentationDetents([.height(450)])
-//                }
-//            }
-            .sheet(item: $modalType, content: { sheet in
-                sheet
-                    .presentationDetents([.height(450)])
-            })
-            .navigationDestination(for: Habit.self) { habit in
-                RoutinesListView(habit: habit)
+                .navigationTitle("Habits")
+                
+                .sheet(item: $modalType, content: { sheet in
+                    sheet
+                        .presentationDetents([.height(450)])
+                })
+                .navigationDestination(for: Habit.self) { habit in
+                    RoutinesListView(habit: habit)
+                }
+                
             }
-            
         }
     }
-}
+
 
 #Preview {
     HabitListView()

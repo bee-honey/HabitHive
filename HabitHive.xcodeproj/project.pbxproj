@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB78BCAB2C5171B20055008C /* AppBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB78BCAA2C5171B20055008C /* AppBackgroundModifier.swift */; };
 		CBB254922C32516B0070D643 /* HabitHiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB254912C32516B0070D643 /* HabitHiveApp.swift */; };
 		CBB254982C32516C0070D643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB254972C32516C0070D643 /* Assets.xcassets */; };
 		CBB2549B2C32516C0070D643 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB2549A2C32516C0070D643 /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB78BCAA2C5171B20055008C /* AppBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundModifier.swift; sourceTree = "<group>"; };
 		CBB2548E2C32516B0070D643 /* HabitHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB254912C32516B0070D643 /* HabitHiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHiveApp.swift; sourceTree = "<group>"; };
 		CBB254972C32516C0070D643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				CBB254E22C33B5550070D643 /* Routines */,
 				CBB254E12C33B5480070D643 /* Habits */,
 				CBB254DC2C3397FD0070D643 /* StartTab.swift */,
+				CB78BCAA2C5171B20055008C /* AppBackgroundModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				CBB254E92C347A2F0070D643 /* DailyView.swift in Sources */,
 				CBB254D72C3326CF0070D643 /* RoutineFormModel.swift in Sources */,
+				CB78BCAB2C5171B20055008C /* AppBackgroundModifier.swift in Sources */,
 				CBB254E62C33CF530070D643 /* CalendarHeaderView.swift in Sources */,
 				CBB254C92C32552C0070D643 /* HabitSymbol.swift in Sources */,
 				CBB254E42C33B57E0070D643 /* CalendarView.swift in Sources */,
@@ -575,6 +579,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -603,6 +608,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

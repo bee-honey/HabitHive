@@ -51,7 +51,7 @@ struct RoutineFormView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle(model.updating ? "Update" : "Create")
+            .navigationTitle(model.updating ? "Update your routine" : "Completed your routine today?")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

@@ -20,53 +20,57 @@ struct CalendarHeaderView: View {
     let months = Date.fullMonthNames
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                
-                if !routines.isEmpty {
-                    HStack {
-                        Picker("", selection: $selectedHabit) {
-                            Text("All").tag(nil as Habit?)
-                            ForEach(habits) { habit in
-                                Text(habit.name).tag(habit as Habit?)
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .padding(.leading, 20)
-                        Spacer()
-                        Picker("", selection: $selectedYear) {
-                            ForEach(years, id: \.self) { year in
-                                Text(String(year))
-                            }
-                        }
-                        Picker("", selection: $selectedMonth) {
-                            ForEach(months.indices, id: \.self) { index in
-                                Text(months[index]).tag(index + 1)
-                                
-                            }
-                        }
-                        .padding(.trailing, 20)
-                    }
-                    .buttonStyle(.bordered)
-                    CalendarView(date: monthDate, selectedHabit: selectedHabit)
+        ZStack {
+//            Color.bgcolor
+//                .edgesIgnoringSafeArea(.all)
+            NavigationStack {
+                VStack {
                     Spacer()
-                } else {
-                    ContentUnavailableView("No Workouts yet", systemImage: HabitSymbol.cardio.rawValue)
+                    if !routines.isEmpty {
+                        HStack {
+                            Picker("", selection: $selectedHabit) {
+                                Text("All").tag(nil as Habit?)
+                                ForEach(habits) { habit in
+                                    Text(habit.name).tag(habit as Habit?)
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .padding(.leading, 20)
+                            Spacer()
+                            Picker("", selection: $selectedYear) {
+                                ForEach(years, id: \.self) { year in
+                                    Text(String(year))
+                                }
+                            }
+                            Picker("", selection: $selectedMonth) {
+                                ForEach(months.indices, id: \.self) { index in
+                                    Text(months[index]).tag(index + 1)
+                                    
+                                }
+                            }
+                            .padding(.trailing, 20)
+                        }
+                        .buttonStyle(.bordered)
+                        CalendarView(date: monthDate, selectedHabit: selectedHabit)
+                        Spacer()
+                    } else {
+                        ContentUnavailableView("No Workouts yet", systemImage: HabitSymbol.cardio.rawValue)
+                    }
+                    
                 }
-                
+//                .background(Color(hex: "#720E7E"))
+                .navigationTitle("Tallies")
             }
-            .navigationTitle("Tallies")
+            .onAppear {
+                years = Array(Set(routines.map{ $0.date.yearInt }.sorted()))
+            }
+            .onChange(of: selectedYear) {
+                updateDate()
+            }
+            .onChange(of: selectedMonth) {
+                updateDate()
+            }
         }
-        .onAppear {
-            years = Array(Set(routines.map{ $0.date.yearInt }.sorted()))
-        }
-        .onChange(of: selectedYear) {
-            updateDate()
-        }
-        .onChange(of: selectedMonth) {
-            updateDate()
-        }
-        
     }
     
     func updateDate() {

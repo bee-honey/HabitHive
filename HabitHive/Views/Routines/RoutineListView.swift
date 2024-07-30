@@ -38,6 +38,7 @@ struct RoutineListView: View {
                 })
             }
             .listStyle(.plain)
+//            .listRowBackground(Color.bgcolor)
         })
         .padding(.top)
     }

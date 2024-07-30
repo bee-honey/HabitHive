@@ -16,67 +16,72 @@ struct RoutinesListView: View {
     
     var body: some View {
         @Bindable var habit = habit
-        Group {
-            if habit.routines.isEmpty {
-                ContentUnavailableView("Create your first \(habit.name) workout by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top of Daily routnes tab", systemImage: "\(habit.icon)")
-            } else {
-                List(habit.routines.sorted(
-                    using: KeyPathComparator(
-                        \Routine.date,
-                         order: .reverse
-                    ))
-                ) { routine in
-                    HStack {
-                        Image(systemName: habit.icon)
-                            .foregroundStyle(Color(hex: habit.hexColor)!)
-                        VStack(alignment: .leading, content: {
-                            Text(routine.date.formatted(date: .abbreviated, time: .shortened))
-                            Text(routine.comment).foregroundStyle(.secondary)
-                        })
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button(role: .destructive) {
-                            if let index = habit.routines.firstIndex(where: { $0.id == routine.id }) {
-                                habit.routines.remove(at: index)
-                            }
-                        } label: {
-                            Label("Delete", systemImage: "trash")
+        ZStack {
+//            Color.bgcolor
+//                .edgesIgnoringSafeArea(.all)
+//            Group {
+                if habit.routines.isEmpty {
+                    ContentUnavailableView("Create your first \(habit.name) workout by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top of Daily routnes tab", systemImage: "\(habit.icon)")
+                } else {
+                    List(habit.routines.sorted(
+                        using: KeyPathComparator(
+                            \Routine.date,
+                             order: .reverse
+                        ))
+                    ) { routine in
+                        HStack {
+                            Image(systemName: habit.icon)
+                                .foregroundStyle(Color(hex: habit.hexColor)!)
+                            VStack(alignment: .leading, content: {
+                                Text(routine.date.formatted(date: .abbreviated, time: .shortened))
+                                Text(routine.comment).foregroundStyle(.secondary)
+                            })
                         }
-
-                    }
-                    .swipeActions(edge: .leading) {
-                        Button(action: {
-                            if let index = habit.routines.firstIndex(where: { $0.id == routine.id }) {
-                                modalType = ModalType.updateRoutine(habit.routines[index], completion: {})
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                if let index = habit.routines.firstIndex(where: { $0.id == routine.id }) {
+                                    habit.routines.remove(at: index)
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash")
                             }
-                        }, label: {
-                            Label("Edit", systemImage: "pencil")
-                        })
+                            
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button(action: {
+                                if let index = habit.routines.firstIndex(where: { $0.id == routine.id }) {
+                                    modalType = ModalType.updateRoutine(habit.routines[index], completion: {})
+                                }
+                            }, label: {
+                                Label("Edit", systemImage: "pencil")
+                            })
+                        }
+//                        .listRowBackground(Color.bgcolor)
+                        
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("\(Image(systemName: habit.icon)) \(habit.name)")
+                        .font(.title)
+                        .foregroundStyle(Color(hex: habit.hexColor)!)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        modalType = .newRoutine(habit, completion: {})
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                    .sheet(item: $modalType) { sheet in
+                        sheet
+                            .presentationDetents([.height(300)])
                     }
                     
                 }
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("\(Image(systemName: habit.icon)) \(habit.name)")
-                    .font(.title)
-                    .foregroundStyle(Color(hex: habit.hexColor)!)
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    modalType = .newRoutine(habit, completion: {})
-                } label: {
-                    Image(systemName: "plus.circle.fill")
-                }
-                .sheet(item: $modalType) { sheet in
-                    sheet
-                        .presentationDetents([.height(300)])
-                }
-                
-            }
-        }
-    }
+//    }
 }
 
 #Preview {

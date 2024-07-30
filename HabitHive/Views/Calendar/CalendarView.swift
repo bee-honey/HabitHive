@@ -30,80 +30,84 @@ struct CalendarView: View {
     
     var body: some View {
         let color = selectedHabit == nil ? .blue : Color(hex: selectedHabit!.hexColor)!
-        VStack {
-            
-            HStack {
-                ForEach(daysOfWeek.indices, id: \.self) { index in
-                    Text(daysOfWeek[index])
-                        .fontWeight(.black)
-                        .foregroundStyle(color)
-                        .frame(maxWidth: .infinity)
-                }
-            }
-            LazyVGrid(columns: columns) {
+        ZStack {
+//            Color.bgcolor
+//                .edgesIgnoringSafeArea(.all)
+            VStack {
                 
-                ForEach(days, id: \.self) { day in
-                    
-                    if day.monthInt != date.monthInt {
-                        Text("")
-                    } else {
-                        Text(day.formatted(.dateTime.day()))
-                            .fontWeight(.bold)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, minHeight: 40)
-                            .background(
-                                Circle()
-                                    .foregroundStyle(
-                                        Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3) : color.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3))
-                            )
-                            .overlay(alignment: .bottomTrailing) {
-                                if let count = counts[day.dayInt] {
-                                    Image(systemName: count < 50 ? "\(count).circle.fill" : "plus.circle.fill")
-                                        .foregroundColor(.secondary)
-                                        .imageScale(.medium)
-                                        .background(Color(.systemBackground)
-                                            .clipShape(.circle)
-                                        )
-                                        .offset(x: 5, y: 5)
-                                }
-                            }
-                            .onTapGesture {
-                                if let count = counts[day.dayInt], count > 0 {
-                                    selectedDay = day
-                                } else {
-                                    selectedDay = nil
-                                }
-                            }
+                HStack {
+                    ForEach(daysOfWeek.indices, id: \.self) { index in
+                        Text(daysOfWeek[index])
+                            .fontWeight(.black)
+                            .foregroundStyle(color)
+                            .frame(maxWidth: .infinity)
                     }
                 }
+                LazyVGrid(columns: columns) {
+                    
+                    ForEach(days, id: \.self) { day in
+                        
+                        if day.monthInt != date.monthInt {
+                            Text("")
+                        } else {
+                            Text(day.formatted(.dateTime.day()))
+                                .fontWeight(.bold)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, minHeight: 40)
+                                .background(
+                                    Circle()
+                                        .foregroundStyle(
+                                            Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3) : color.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3))
+                                )
+                                .overlay(alignment: .bottomTrailing) {
+                                    if let count = counts[day.dayInt] {
+                                        Image(systemName: count < 50 ? "\(count).circle.fill" : "plus.circle.fill")
+                                            .foregroundColor(.secondary)
+                                            .imageScale(.medium)
+                                            .background(Color(.systemBackground)
+                                                .clipShape(.circle)
+                                            )
+                                            .offset(x: 5, y: 5)
+                                    }
+                                }
+                                .onTapGesture {
+                                    if let count = counts[day.dayInt], count > 0 {
+                                        selectedDay = day
+                                    } else {
+                                        selectedDay = nil
+                                    }
+                                }
+                        }
+                    }
+                    
+                }
+                
+                if let selectedDay {
+                    RoutineListView(day: selectedDay, routines: routinesByDay)
+                }
                 
             }
-            
-            if let selectedDay {
-                RoutineListView(day: selectedDay, routines: routinesByDay)
+            .padding()
+            .onAppear(perform: {
+                days = date.calendarDisplayDays
+                setupCounts()
+                selectedDay = nil
+            })
+            .onChange(of: date) {
+                days = date.calendarDisplayDays
+                setupCounts()
+                selectedDay = nil
             }
-            
-        }
-        .padding()
-        .onAppear(perform: {
-            days = date.calendarDisplayDays
-            setupCounts()
-            selectedDay = nil
-        })
-        .onChange(of: date) {
-            days = date.calendarDisplayDays
-            setupCounts()
-            selectedDay = nil
-        }
-        .onChange(of: selectedHabit) {
-            setupCounts()
-            selectedDay = nil
-        }
-        .onChange(of: selectedDay) {
-            if let selectedDay {
-                routinesByDay = routines.filter {$0.date.dayInt == selectedDay.dayInt}
-                if let selectedHabit {
-                    routinesByDay = routinesByDay.filter({ $0.habit == selectedHabit })
+            .onChange(of: selectedHabit) {
+                setupCounts()
+                selectedDay = nil
+            }
+            .onChange(of: selectedDay) {
+                if let selectedDay {
+                    routinesByDay = routines.filter {$0.date.dayInt == selectedDay.dayInt}
+                    if let selectedHabit {
+                        routinesByDay = routinesByDay.filter({ $0.habit == selectedHabit })
+                    }
                 }
             }
         }

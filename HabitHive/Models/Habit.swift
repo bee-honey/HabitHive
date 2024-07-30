@@ -10,6 +10,16 @@ import Foundation
 import UIKit
 import SwiftData
 
+enum WeekDay: String, CaseIterable, Codable {
+    case monday = "Monday"
+    case tuesday = "Tuesday"
+    case wednesday = "Wednesday"
+    case thursday = "Thursday"
+    case friday = "Friday"
+    case saturday = "Saturday"
+    case sunday = "Sunday"
+}
+
 @Model class Habit {
     var id: UUID
     var name: String
@@ -19,12 +29,19 @@ import SwiftData
     @Relationship(deleteRule: .cascade)
     var routines: [Routine] = []
     var dailyHabitCount: [DailyHabitCount] = []
-    init(id: UUID = UUID(), name: String, icon: HabitSymbol = .gardening, hexColor: String = "FF0000", countPerDay: Int = 1) {
+    var enabledDays: [WeekDay] = [] // New property to store selected days
+    init(id: UUID = UUID(),
+         name: String,
+         icon: HabitSymbol = .gardening,
+         hexColor: String = "FF0000",
+         countPerDay: Int = 1,
+         enabledDays: [WeekDay] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]) {
         self.id = id
         self.name = name
         self.icon = icon.rawValue
         self.hexColor = hexColor
         self.countPerDay = countPerDay
+        self.enabledDays = enabledDays
     }
 }
 
@@ -39,7 +56,7 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4),
+                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: [.tuesday, .friday]),
                 Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D", countPerDay: 3),
                 Habit(name: "Reading", icon: .reading, hexColor: "38571A", countPerDay: 2),
                 Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30", countPerDay: 1),
