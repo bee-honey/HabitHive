@@ -37,71 +37,69 @@ struct DailyView: View {
                         ScrollView {
                             LazyVGrid(columns: columns, spacing: 10) {
                                 ForEach(habits) { habit in
+                                    let today = Calendar.current.component(.weekday, from: Date())
+                                    let todayIndex = today - 1 // Sunday = 1, Monday = 2, ..., Saturday = 7 in Calendar, WeekDay starts from 0
+                                    let todayWeekDay = WeekDay.allCases[todayIndex].rawValue
                                     
-                                    // Get the current weekday
-//                                    let today = Calendar.current.component(.weekday, from: Date())
-//                                    let todayIndex = today - 1 // Sunday = 1, Monday = 2, ..., Saturday = 7 in Calendar, WeekDay starts from 0
-//                                    
-//                                    // Check if today is in the enabled days, else continue
-//                                    guard habit.enabledDays.contains(WeekDay.allCases[todayIndex]) else { return }
-                                    
-                                    let remainingCount = habitCounts[habit.id] ?? habit.countPerDay
-                                    //check if today is in the enabled days here, else continue
-                                    let isButtonActive = remainingCount > 0
-                                    Button(action: {
-                                        if isButtonActive {
-                                            modalType = ModalType.newRoutine(habit, completion: {
-                                                let newCount = remainingCount - 1
-                                                habitCounts[habit.id] = newCount
-                                                updateHabitCount(habit: habit, newCount: newCount)
-                                            })
-                                        }
-                                    }) {
-                                        VStack {
-                                            Image(systemName: habit.icon)
-                                                .foregroundStyle(Color(hex: habit.hexColor)!)
-                                                .font(.system(size: 30))
-                                                .frame(width: 50)
-                                                .padding(.bottom, 5)
-                                            Spacer()
-                                            
-                                            Text(habit.name.capitalized)
-                                                .font(.body)
-                                            //                                                .foregroundColor(isButtonActive ? .primary : .white)
-                                                .multilineTextAlignment(.leading)
-                                                .lineLimit(2)
-                                                .frame(maxWidth: .infinity, alignment: Alignment.center)
-                                        }
-                                        .padding()
-                                        .background(Color(isButtonActive ? Color(UIColor.secondarySystemBackground) : Color.clear))
-                                        .cornerRadius(isButtonActive ? 10 : 0)
-                                        .shadow(radius: isButtonActive ? 5 : 0)
-                                        .overlay(alignment: .topLeading) {
-                                            if remainingCount > 0 {
-                                                Image(systemName: remainingCount < 50 ? "\(remainingCount).circle.fill" : "plus.circle.fill")
-                                                    .foregroundColor(Color(red: 0.7, green: 0.7, blue: 0.3))
-                                                    .imageScale(.medium)
-                                                    .background(Color(.systemBackground)
-                                                        .clipShape(.circle)
-                                                    )
-                                                    .offset(x: 5, y: 5)
+                                    if habit.enabledDays.contains(todayWeekDay) {
+                                        let remainingCount = habitCounts[habit.id] ?? habit.countPerDay
+                                        let isButtonActive = remainingCount > 0
+                                        Button(action: {
+                                            if isButtonActive {
+                                                modalType = ModalType.newRoutine(habit, completion: {
+                                                    let newCount = remainingCount - 1
+                                                    habitCounts[habit.id] = newCount
+                                                    updateHabitCount(habit: habit, newCount: newCount)
+                                                })
                                             }
-                                        }
-                                        .overlay(
+                                        }) {
                                             VStack {
-                                                HStack {
-                                                    Spacer()
-                                                    if remainingCount == 0 {
-                                                        Image(systemName: "checkmark.circle.fill")
-                                                            .foregroundColor(.green)
-                                                    }
-                                                }
+                                                Image(systemName: habit.icon)
+                                                    .foregroundStyle(Color(hex: habit.hexColor)!)
+                                                    .font(.system(size: 30))
+                                                    .frame(width: 50)
+                                                    .padding(.bottom, 5)
                                                 Spacer()
+                                                
+                                                Text(habit.name.capitalized)
+                                                    .font(.body)
+                                                //                                                .foregroundColor(isButtonActive ? .primary : .white)
+                                                    .multilineTextAlignment(.leading)
+                                                    .lineLimit(2)
+                                                    .frame(maxWidth: .infinity, alignment: Alignment.center)
                                             }
-                                                .padding([.top, .trailing], 5)
-                                        )
+                                            .padding()
+                                            .background(Color(isButtonActive ? Color(UIColor.secondarySystemBackground) : Color.clear))
+                                            .cornerRadius(isButtonActive ? 10 : 0)
+                                            .shadow(radius: isButtonActive ? 5 : 0)
+                                            .overlay(alignment: .topLeading) {
+                                                if remainingCount > 0 {
+                                                    Image(systemName: remainingCount < 50 ? "\(remainingCount).circle.fill" : "plus.circle.fill")
+                                                        .foregroundColor(Color(red: 0.7, green: 0.7, blue: 0.3))
+                                                        .imageScale(.medium)
+                                                        .background(Color(.systemBackground)
+                                                            .clipShape(.circle)
+                                                        )
+                                                        .offset(x: 5, y: 5)
+                                                }
+                                            }
+                                            .overlay(
+                                                VStack {
+                                                    HStack {
+                                                        Spacer()
+                                                        if remainingCount == 0 {
+                                                            Image(systemName: "checkmark.circle.fill")
+                                                                .foregroundColor(.green)
+                                                        }
+                                                    }
+                                                    Spacer()
+                                                }
+                                                    .padding([.top, .trailing], 5)
+                                            )
+                                        }
+                                        
+                                        .disabled(!isButtonActive)
                                     }
-                                    .disabled(!isButtonActive)
                                 }
                             }
                             .padding(.horizontal)

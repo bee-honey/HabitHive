@@ -29,13 +29,15 @@ enum WeekDay: String, CaseIterable, Codable {
     @Relationship(deleteRule: .cascade)
     var routines: [Routine] = []
     var dailyHabitCount: [DailyHabitCount] = []
-    var enabledDays: [WeekDay] = [] // New property to store selected days
+    var enabledDays: [String] = [] // New property to store selected days
     init(id: UUID = UUID(),
          name: String,
          icon: HabitSymbol = .gardening,
          hexColor: String = "FF0000",
          countPerDay: Int = 1,
-         enabledDays: [WeekDay] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]) {
+//         enabledDays: [String] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]) {
+//         enabledDays: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) {
+         enabledDays: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) {
         self.id = id
         self.name = name
         self.icon = icon.rawValue
@@ -56,7 +58,7 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: [.tuesday, .friday]),
+                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: ["tuesday", "friday"]),
                 Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D", countPerDay: 3),
                 Habit(name: "Reading", icon: .reading, hexColor: "38571A", countPerDay: 2),
                 Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30", countPerDay: 1),
