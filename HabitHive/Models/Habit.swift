@@ -11,13 +11,13 @@ import UIKit
 import SwiftData
 
 enum WeekDay: String, CaseIterable, Codable {
+    case sunday = "Sunday"
     case monday = "Monday"
     case tuesday = "Tuesday"
     case wednesday = "Wednesday"
     case thursday = "Thursday"
     case friday = "Friday"
     case saturday = "Saturday"
-    case sunday = "Sunday"
 }
 
 @Model class Habit {
@@ -29,15 +29,15 @@ enum WeekDay: String, CaseIterable, Codable {
     @Relationship(deleteRule: .cascade)
     var routines: [Routine] = []
     var dailyHabitCount: [DailyHabitCount] = []
-    var enabledDays: [String] = [] // New property to store selected days
+    var enabledDays: [WeekDay] = [] // New property to store selected days
     init(id: UUID = UUID(),
          name: String,
          icon: HabitSymbol = .gardening,
          hexColor: String = "FF0000",
          countPerDay: Int = 1,
-//         enabledDays: [String] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]) {
+         enabledDays: [WeekDay] = [ .sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]) {
 //         enabledDays: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) {
-         enabledDays: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) {
+//         enabledDays: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]) {
         self.id = id
         self.name = name
         self.icon = icon.rawValue
@@ -58,7 +58,8 @@ extension Habit {
         )
         var sampleHabits: [Habit] {
             [
-                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: ["tuesday", "friday"]),
+//                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: ["tuesday", "friday"]),
+                Habit(name: "Cardio", icon: .cardio, hexColor: "B33234", countPerDay: 4, enabledDays: [.tuesday, .friday]),
                 Habit(name: "Gardening", icon: .gardening, hexColor: "6F223D", countPerDay: 3),
                 Habit(name: "Reading", icon: .reading, hexColor: "38571A", countPerDay: 2),
                 Habit(name: "Hiking", icon: .hiking, hexColor: "FF3B30", countPerDay: 1),

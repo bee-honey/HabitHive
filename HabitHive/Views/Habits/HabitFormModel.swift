@@ -13,7 +13,7 @@ class HabitFormModel {
     var icon: HabitSymbol = .cardio
     var hexColor: Color = .red
     var countPerDay: Int = 1
-    
+    var selectedDays: [Bool] = Array(repeating: false, count: 7)
     var habit: Habit?
     
     var updating: Bool { habit != nil }

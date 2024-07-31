@@ -34,12 +34,12 @@ struct DailyView: View {
                     if habits.isEmpty {
                         ContentUnavailableView("Create your first Habit by tapping on the \(Image(systemName: "plus.circle.fill")) button at the top.", image: "launchScreen")
                     } else {
-                        ScrollView {
+                        ScrollView() {
                             LazyVGrid(columns: columns, spacing: 10) {
                                 ForEach(habits) { habit in
                                     let today = Calendar.current.component(.weekday, from: Date())
                                     let todayIndex = today - 1 // Sunday = 1, Monday = 2, ..., Saturday = 7 in Calendar, WeekDay starts from 0
-                                    let todayWeekDay = WeekDay.allCases[todayIndex].rawValue
+                                    let todayWeekDay = WeekDay.allCases[todayIndex]
                                     
                                     if habit.enabledDays.contains(todayWeekDay) {
                                         let remainingCount = habitCounts[habit.id] ?? habit.countPerDay
@@ -75,7 +75,7 @@ struct DailyView: View {
                                             .overlay(alignment: .topLeading) {
                                                 if remainingCount > 0 {
                                                     Image(systemName: remainingCount < 50 ? "\(remainingCount).circle.fill" : "plus.circle.fill")
-                                                        .foregroundColor(Color(red: 0.7, green: 0.7, blue: 0.3))
+                                                        .foregroundColor(Color(red: 1, green: 0.1, blue: 0.2))
                                                         .imageScale(.medium)
                                                         .background(Color(.systemBackground)
                                                             .clipShape(.circle)
@@ -103,7 +103,7 @@ struct DailyView: View {
                                 }
                             }
                             .padding(.horizontal)
-                            
+                            .padding(.top, 20)
                         }
                     }
                 }

@@ -59,7 +59,7 @@ struct CalendarHeaderView: View {
                     
                 }
 //                .background(Color(hex: "#720E7E"))
-                .navigationTitle("Tallies")
+                .navigationTitle("Activity Calendar")
             }
             .onAppear {
                 years = Array(Set(routines.map{ $0.date.yearInt }.sorted()))
