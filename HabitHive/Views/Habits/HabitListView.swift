@@ -66,7 +66,7 @@ struct `HabitListView`: View {
                 .navigationDestination(for: Habit.self) { habit in
                     RoutinesListView(habit: habit)
                 }
-                
+                .padding(.top, 10)
             }
         }
     }
