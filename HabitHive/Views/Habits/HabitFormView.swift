@@ -48,6 +48,7 @@ struct HabitFormView: View {
                         Text("Days")
                     }
                     
+                    
                     LabeledContent {
                         Picker("Times per day", selection: $model.countPerDay) {
                             ForEach(1..<25) { number in
@@ -77,7 +78,7 @@ struct HabitFormView: View {
                     .padding(.top)
                     
                     Button(model.updating ? "Update" : "Create") {
-                        let enabledDays: [WeekDay] = model.selectedDays.enumerated().compactMap { index, isSelected in
+                        let enabledDays: [WeekDay] = selectedDays.enumerated().compactMap { index, isSelected in
                             isSelected ? WeekDay.allCases[index] : nil
                         }
                         if model.updating {
@@ -124,6 +125,7 @@ struct HabitFormView: View {
                     habit.enabledDays.contains(weekDay)
                 }
             }
+            print(selectedDays)
         }
     }
 }

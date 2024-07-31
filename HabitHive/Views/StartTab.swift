@@ -13,7 +13,7 @@ struct StartTab: View {
         TabView {
             DailyView()
                 .tabItem {
-                    Label("Daily", systemImage: "person.badge.plus")
+                    Label("Routines", systemImage: "person.badge.plus")
                 }
             HabitListView()
                 .tabItem {
