@@ -13,6 +13,7 @@ struct HabitFormView: View {
     @State var model: HabitFormModel
     @State private var selectingIcon: Bool = false
     @State private var selectedDays: [Bool] = Array(repeating: false, count: 7)
+//    @State private var countPerDay: Int = 1
     let daySymbols = ["S", "M", "T", "W", "T", "F", "S"]
     
     var body: some View {
@@ -88,6 +89,7 @@ struct HabitFormView: View {
                                 habit.hexColor = model.hexColor.toHex()!
                                 habit.countPerDay = model.countPerDay
                                 habit.enabledDays = enabledDays
+                                print("\(model.countPerDay) and \(habit.countPerDay)")
                             }
                         } else {
                             let newHabit = Habit(
@@ -124,8 +126,11 @@ struct HabitFormView: View {
                 selectedDays = WeekDay.allCases.map { weekDay in
                     habit.enabledDays.contains(weekDay)
                 }
+                
+                model.countPerDay = habit.countPerDay
             }
-            print(selectedDays)
+            
+            
         }
     }
 }

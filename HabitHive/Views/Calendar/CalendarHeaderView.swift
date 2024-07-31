@@ -20,9 +20,6 @@ struct CalendarHeaderView: View {
     let months = Date.fullMonthNames
     
     var body: some View {
-        ZStack {
-//            Color.bgcolor
-//                .edgesIgnoringSafeArea(.all)
             NavigationStack {
                 VStack {
                     Spacer()
@@ -70,7 +67,6 @@ struct CalendarHeaderView: View {
             .onChange(of: selectedMonth) {
                 updateDate()
             }
-        }
     }
     
     func updateDate() {
