@@ -24,10 +24,9 @@ struct CalendarView: View {
     init(date: Date, selectedHabit: Habit?) {
         self.date = date
         self.selectedHabit = selectedHabit
-        let endOfMonthAdjustment = Calendar.current.date(byAdding: .day, value: -1, to: date.endOfMonth)!
-        let predicate = #Predicate<Routine>{$0.date >= date.startOfMonth && $0.date <= endOfMonthAdjustment}
-        _routines = Query(filter: predicate, sort: \Routine.date)
-        print("date: \(date), selectedHabit: \(selectedHabit), end: \(endOfMonthAdjustment), routines: \(routines)")
+//        let endOfMonthAdjustment = Calendar.current.date(byAdding: .day, value: -1, to: date.endOfMonth)!
+//        let predicate = #Predicate<Routine>{$0.date >= date.startOfMonth && $0.date <= endOfMonthAdjustment}
+//        _routines = Query(filter: predicate, sort: \Routine.date)
     }
     
     var body: some View {
@@ -119,7 +118,7 @@ struct CalendarView: View {
         }
         let mappedItems = filteredRoutines.map { ($0.date.dayInt, 1) }
         counts = Dictionary(mappedItems, uniquingKeysWith: +)
-        print("Counts updated: \(counts)") // Debugging line to check counts
+        debugPrint("Counts updated: \(counts)") // Debugging line to check counts
     }
 }
 

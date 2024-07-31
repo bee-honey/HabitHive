@@ -22,7 +22,6 @@ struct CalendarHeaderView: View {
     var body: some View {
             NavigationStack {
                 VStack {
-                    Spacer()
                     if !routines.isEmpty {
                         HStack {
                             Picker("", selection: $selectedHabit) {
@@ -57,6 +56,7 @@ struct CalendarHeaderView: View {
                 }
 //                .background(Color(hex: "#720E7E"))
                 .navigationTitle("Activity Calendar")
+                .navigationBarTitleDisplayMode(.inline)
             }
             .onAppear {
                 years = Array(Set(routines.map{ $0.date.yearInt }.sorted()))

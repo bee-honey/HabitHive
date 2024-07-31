@@ -18,13 +18,13 @@ struct RoutineFormView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                if model.updating {
+//                if model.updating {
                     LabeledContent {
                         DatePicker("", selection: $model.date, in: ...today)
                     } label: {
                         Text("Date/Time")
                     }
-                }
+//                }
                 
                 LabeledContent {
                     TextField("How did it go?", text: $model.comment, axis: .vertical)
@@ -64,7 +64,7 @@ struct RoutineFormView: View {
     let habit = try! container.mainContext.fetch(fetchDescriptor)[0]
     return NavigationStack {
         RoutineFormView(model: RoutineFormModel(habit: habit)) {
-            print("Routine created")
+            debugPrint("Routine created")
         }
     }
     .modelContainer(Habit.preview)

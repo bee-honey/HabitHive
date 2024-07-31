@@ -14,7 +14,7 @@ struct RoutineListView: View {
     var filteredRoutines: [Routine] = []
     
     init(day: Date, routines: [Routine]) {
-        print(day)
+        debugPrint(day)
         self.day = day
         self.routines = routines
         self.filteredRoutines = routines.filter({ $0.date.startOfDay == day.startOfDay })

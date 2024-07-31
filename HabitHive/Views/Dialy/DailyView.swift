@@ -69,8 +69,9 @@ struct DailyView: View {
                                                     .frame(maxWidth: .infinity, alignment: Alignment.center)
                                             }
                                             .padding()
-                                            .background(Color(isButtonActive ? Color(UIColor.secondarySystemBackground) : Color.clear))
-                                            .cornerRadius(isButtonActive ? 10 : 0)
+                                            .background(Color(isButtonActive ? Color(UIColor.white) : Color(red: 0.97, green: 0.97, blue: 0.97)))
+//                                            .cornerRadius(isButtonActive ? 10 : 5 )
+                                            .cornerRadius(10)
                                             .shadow(radius: isButtonActive ? 5 : 0)
                                             .overlay(alignment: .topLeading) {
                                                 if remainingCount > 0 {
@@ -81,23 +82,19 @@ struct DailyView: View {
                                                             .clipShape(.circle)
                                                         )
                                                         .offset(x: 5, y: 5)
-                                                }
-                                            }
-                                            .overlay(
-                                                VStack {
-                                                    HStack {
-                                                        Spacer()
-                                                        if remainingCount == 0 {
-                                                            Image(systemName: "checkmark.circle.fill")
-                                                                .foregroundColor(.green)
+                                                } else {
+                                                    VStack {
+                                                        HStack {
+                                                            if remainingCount == 0 {
+                                                                Image(systemName: "checkmark.circle.fill")
+                                                                    .foregroundColor(.green)
+                                                                    .offset(x: 5, y: 5)
+                                                            }
                                                         }
                                                     }
-                                                    Spacer()
                                                 }
-                                                    .padding([.top, .trailing], 5)
-                                            )
+                                            }
                                         }
-                                        
                                         .disabled(!isButtonActive)
                                     }
                                 }

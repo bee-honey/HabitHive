@@ -58,7 +58,7 @@ struct `HabitListView`: View {
                 
             }
                 .navigationTitle("Habits")
-                
+                .navigationBarTitleDisplayMode(.inline)
                 .sheet(item: $modalType, content: { sheet in
                     sheet
                         .presentationDetents([.height(450)])

@@ -89,7 +89,7 @@ struct HabitFormView: View {
                                 habit.hexColor = model.hexColor.toHex()!
                                 habit.countPerDay = model.countPerDay
                                 habit.enabledDays = enabledDays
-                                print("\(model.countPerDay) and \(habit.countPerDay)")
+                                debugPrint("\(model.countPerDay) and \(habit.countPerDay)")
                             }
                         } else {
                             let newHabit = Habit(
