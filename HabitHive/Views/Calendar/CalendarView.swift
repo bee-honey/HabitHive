@@ -56,10 +56,10 @@ struct CalendarView: View {
                             .background(
                                 Circle()
                                     .foregroundStyle(
-                                        Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3) : color.opacity(counts[day.dayInt] != nil ? 0.8 : 0.3))
+                                        Date.now.startOfDay == day.startOfDay ? .red.opacity(counts[day.dayInt + day.monthInt * 100 + day.yearInt * 10000] != nil ? 0.8 : 0.3) : color.opacity(counts[day.dayInt + day.monthInt  * 100 + day.yearInt * 10000] != nil ? 0.8 : 0.3))
                             )
                             .overlay(alignment: .bottomTrailing) {
-                                if let count = counts[day.dayInt] {
+                                if let count = counts[day.dayInt + day.monthInt * 100 + day.yearInt * 10000] {
                                     Image(systemName: count < 50 ? "\(count).circle.fill" : "plus.circle.fill")
                                         .foregroundColor(.secondary)
                                         .imageScale(.medium)
@@ -70,7 +70,7 @@ struct CalendarView: View {
                                 }
                             }
                             .onTapGesture {
-                                if let count = counts[day.dayInt], count > 0 {
+                                if let count = counts[day.dayInt + day.monthInt * 100 + day.yearInt * 10000], count > 0 {
                                     selectedDay = day
                                 } else {
                                     selectedDay = nil
@@ -116,7 +116,8 @@ struct CalendarView: View {
         if let selectedHabit = selectedHabit {
             filteredRoutines = routines.filter { $0.habit == selectedHabit }
         }
-        let mappedItems = filteredRoutines.map { ($0.date.dayInt, 1) }
+        let mappedItems = filteredRoutines.map { ($0.date.dayInt + $0.date.monthInt * 100 + $0.date.yearInt * 10000, 1) }
+        debugPrint("Mapped Items updated: \(mappedItems)") // Debugging line to check counts
         counts = Dictionary(mappedItems, uniquingKeysWith: +)
         debugPrint("Counts updated: \(counts)") // Debugging line to check counts
     }
